@@ -4,6 +4,10 @@ terraform {
       source = "cyrilgdn/postgresql"
       version = "1.24.0"
     }
+    random = {
+      source = "hashicorp/random"
+      version = "3.6.3"
+    }
   }
 }
 
