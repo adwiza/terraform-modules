@@ -14,7 +14,9 @@ terraform {
 provider "postgresql" {
   host            = var.postgresql_host
   port            = var.postgresql_port
-  username        = var.postgresql_username
-  password        = var.postgresql_password
+  username        = var.postgresql_root_username
+  password        = var.postgresql_root_password
   sslmode         = var.postgresql_sslmode
 }
+
+provider "vault" {}

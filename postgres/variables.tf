@@ -26,12 +26,12 @@ variable "postgresql_port" {
   type        = number
 }
 
-variable "postgresql_username" {
+variable "postgresql_root_username" {
   description = "PostgreSQL username"
   type        = string
 }
 
-variable "postgresql_password" {
+variable "postgresql_root_password" {
   description = "PostgreSQL password"
   type        = string
 }

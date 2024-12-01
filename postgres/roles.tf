@@ -20,3 +20,13 @@ resource "postgresql_role" "roles" {
     prevent_destroy = false
   }
 }
+
+resource "vault_generic_secret" "postgres_password" {
+  for_each = { for r in var.roles : r.name => r }
+
+  path = "secret/rds/${var.database_name}/${each.value.name}"
+
+  data_json = jsonencode({
+    password = random_password.role_passwords[each.key].result
+  })
+}
