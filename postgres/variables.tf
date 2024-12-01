@@ -4,15 +4,16 @@ variable "database_name" {
 }
 
 variable "roles" {
-  description = "List of roles with permissions to be created"
+  description = "List of roles with their configurations"
   type = list(object({
-    name        = string
-    password    = string
-    superuser   = bool
-    login       = bool
+    name       = string
+    password   = string
+    superuser  = bool
+    login      = bool
     replication = bool
-    bypass_rls  = bool
+    bypass_rls = bool
   }))
+  default = []
 }
 
 variable "postgresql_host" {
@@ -39,4 +40,10 @@ variable "postgresql_sslmode" {
   description = "SSL mode for PostgreSQL connection"
   type        = string
   default     = "disable"
+}
+
+variable "password_length" {
+  description = "Length of dynamically generated passwords"
+  type        = number
+  default     = 16
 }
