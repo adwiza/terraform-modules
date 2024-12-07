@@ -1,14 +1,3 @@
-variable "bucket_name" {
-  description = "Bucket name"
-  type        = string
-  default     = "airflow-dev"
-}
-variable "acl" {
-  description = "ACL type"
-  type        = string
-  default     = "private"
-}
-
 variable "minio_server" {
   description = "The MinIO server URL"
   type        = string
@@ -22,4 +11,14 @@ variable "minio_user" {
 variable "minio_password" {
   description = "The MinIO password"
   type        = string
+}
+
+variable "iam_policy_name" {
+  type        = string
+  description = "The JSON policy for the IAM policy"
+}
+
+variable "iam_policy_json" {
+  type        = string
+  description = "The JSON policy for the IAM policy"
 }
