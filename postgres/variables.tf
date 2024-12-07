@@ -6,12 +6,12 @@ variable "database_name" {
 variable "roles" {
   description = "List of roles with their configurations"
   type = list(object({
-    name       = string
-    password   = string
-    superuser  = bool
-    login      = bool
+    name        = string
+    password    = string
+    superuser   = bool
+    login       = bool
     replication = bool
-    bypass_rls = bool
+    bypass_rls  = bool
   }))
   default = []
 }
@@ -46,4 +46,15 @@ variable "password_length" {
   description = "Length of dynamically generated passwords"
   type        = number
   default     = 16
+}
+
+variable "vault_path" {
+  description = "Vault path"
+  type        = string
+}
+
+variable "dialect" {
+  description = "SQL dialect"
+  type        = string
+  default     = "postgres"
 }

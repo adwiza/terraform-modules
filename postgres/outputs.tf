@@ -12,7 +12,7 @@ output "role_passwords" {
   description = "The passwords for the PostgreSQL roles"
   value = {
     for r in var.roles : r.name => coalesce(
-      r.password, 
+      r.password,
       random_password.role_passwords[r.name].result
     )
   }
