@@ -13,12 +13,26 @@ variable "minio_password" {
   type        = string
 }
 
-variable "iam_policy_name" {
-  type        = string
-  description = "The JSON policy for the IAM policy"
+variable "iam_policies" {
+  description = "List of IAM policies to be created"
+  type = list(object({
+    iam_policy_name = string
+    iam_policy_json = string
+  }))
 }
 
-variable "iam_policy_json" {
-  type        = string
-  description = "The JSON policy for the IAM policy"
+variable "non_ldap_group_policy_attachments" {
+  description = "The non-LDAP group attachments"
+  type = list(object({
+    group_name = string
+    policies   = list(string)
+  }))
 }
+
+# variable "ldap_groups_policy_attachments" {
+#   description = "List of group-policy attachments"
+#   type = list(object({
+#     group_dn = string
+#     policies = list(string)
+#   }))
+# }
