@@ -5,8 +5,8 @@ output "iam_policy_ids" {
 
 output "group_policy_attachments" {
   value = {
-    for group_attachment in var.non_ldap_group_policy_attachments :
-    group_attachment.group_name => {
+    for group_attachment in var.ldap_groups_policy_attachments :
+    group_attachment.group_dn => {
       policies = [for policy_name in group_attachment.policies :
       minio_iam_policy.iam_policy[policy_name].name]
     }

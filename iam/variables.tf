@@ -21,18 +21,10 @@ variable "iam_policies" {
   }))
 }
 
-variable "non_ldap_group_policy_attachments" {
-  description = "The non-LDAP group attachments"
+variable "ldap_groups_policy_attachments" {
+  description = "List of group-policy attachments"
   type = list(object({
-    group_name = string
-    policies   = list(string)
+    group_dn = string
+    policies = list(string)
   }))
 }
-
-# variable "ldap_groups_policy_attachments" {
-#   description = "List of group-policy attachments"
-#   type = list(object({
-#     group_dn = string
-#     policies = list(string)
-#   }))
-# }
